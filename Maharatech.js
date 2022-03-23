@@ -179,6 +179,25 @@ async function askDirPath(currentPath) {
   ]);
 }
 
+async function askCourseUrl() {
+  return await inquirer.prompt([
+    {
+      type: 'input',
+      name: 'courseUrl',
+      message: 'Enter Course Url :',
+    },
+  ]);
+}
+async function askCzkawkaPath() {
+  return await inquirer.prompt([
+    {
+      type: 'input',
+      name: 'czkawka_cli',
+      message: 'Enter czkawka_cli path :',
+    },
+  ]);
+}
+
 async function StartFrameExtract(framePerSec) {
   const courseDir = await askDirPath('./');
   const tmp_file = `${courseDir}/YTLinks_tmp.txt`;
@@ -224,10 +243,12 @@ async function StartFrameExtract(framePerSec) {
 
 async function StartRemoveDup(czkawka_cli) {
   const courseDir = await askDirPath('./');
+  const czkawka_cli = await askCzkawkaPath();
   await getDuplicated(czkawka_cli, `./${courseDir}`);
 }
 
 async function StartNewCourse(courseURL) {
+  const courseURL = await askCourseUrl();
   console.log('[-] Starting Browser...');
   const { browser, page } = await browserInstance();
   console.log(`[+] Browser Started`);

@@ -5,9 +5,6 @@ const {
 } = require('./Maharatech.js');
 var inquirer = require('inquirer');
 
-const courseURL = 'https://maharatech.gov.eg/mod/hvp/view.php?id=10983';
-const czkawka_cli = 'C:\\Users\\HS\\Downloads\\czkawka_cli.exe';
-
 (async () => {
   await inquirer
     .prompt([
