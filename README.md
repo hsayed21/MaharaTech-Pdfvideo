@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/hsayed21/MaharaTech-Pdfvideo">
-    <img src="https://i.imgur.com/TvHFmrP.png" alt="Logo" width="80" height="80">
+    <img src="https://i.imgur.com/TvHFmrP.png" alt="Logo" width="300" height="200">
   </a>
 
   <h3 align="center">MaharaTech-Pdfvideo</h3>
