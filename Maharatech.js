@@ -200,7 +200,7 @@ async function askCzkawkaPath() {
 
 async function StartFrameExtract(framePerSec) {
   const courseDir = await askDirPath('./');
-  const tmp_file = `${courseDir}/YTLinks_tmp.txt`;
+  const tmp_file = `${courseDir.dir_path}/YTLinks_tmp.txt`;
   if (fs.existsSync(tmp_file)) {
     const allFileContents = fs.readFileSync(tmp_file, 'utf-8');
     const links = Array.from(JSON.parse(allFileContents));
@@ -222,7 +222,7 @@ async function StartFrameExtract(framePerSec) {
         .replace(/__/g, '_');
       console.log('Title: ', title);
       const [flag] = await Promise.all([
-        ToFrames(info.url, `${courseDir}/${title}`, framePerSec), // one frame every 3 second
+        ToFrames(info.url, `${courseDir.dir_path}/${title}`, framePerSec), // one frame every 3 second
       ]);
 
       console.log('Flag: ', flag);
@@ -241,22 +241,22 @@ async function StartFrameExtract(framePerSec) {
   }
 }
 
-async function StartRemoveDup(czkawka_cli) {
+async function StartRemoveDup() {
   const courseDir = await askDirPath('./');
   const czkawka_cli = await askCzkawkaPath();
-  await getDuplicated(czkawka_cli, `./${courseDir}`);
+  await getDuplicated(czkawka_cli.czkawka_cli, `./${courseDir.dir_path}`);
 }
 
-async function StartNewCourse(courseURL) {
+async function StartNewCourse() {
   const courseURL = await askCourseUrl();
   console.log('[-] Starting Browser...');
   const { browser, page } = await browserInstance();
   console.log(`[+] Browser Started`);
   console.log(`[-] Authenticating...`);
-  await login(page, courseURL);
+  await login(page, courseURL.courseUrl);
   console.log(`[+] Authenticated`);
   console.log(`[-] Check element existing...`);
-  checkExistElements(page, courseURL);
+  checkExistElements(page, courseURL.courseUrl);
   console.log(`[+] Elements Existed`);
 
   // Create folder

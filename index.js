@@ -23,7 +23,7 @@ var inquirer = require('inquirer');
     .then((answers) => {
       // Use user feedback for... whatever!!
       if (answers.op_type == 'New Course') {
-        StartNewCourse(courseURL);
+        StartNewCourse();
       } else if (answers.op_type == 'Continue Extracting Frames') {
         console.log(`[-] Extracing Video To Frames...`);
         StartFrameExtract(3);
@@ -31,7 +31,7 @@ var inquirer = require('inquirer');
         // console.log(`\n[+] Saved to "${courseName}" folder\n`);
       } else if (answers.op_type == 'Remove Duplicated Image') {
         console.log(`[-] Removing Duplicated Images...`);
-        StartRemoveDup(czkawka_cli);
+        StartRemoveDup();
         console.log(`[+] Done Removed Duplicated Images`);
       }
     })
