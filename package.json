@@ -1,0 +1,21 @@
+{
+  "name": "maharatech-pdfvideo",
+  "version": "1.0.0",
+  "description": "extract frames from videos and removing similar frames to be ready as a pdf file",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hsayed21",
+  "license": "ISC",
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "cli": "^1.0.1",
+    "dotenv": "^10.0.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "inquirer": "^8.2.1",
+    "puppeteer": "^13.5.1",
+    "ytdl-core": "^4.11.0"
+  }
+}
